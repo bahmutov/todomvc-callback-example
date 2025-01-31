@@ -1,0 +1,22 @@
+{
+  "name": "todomvc-callback-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "json-server --host 127.0.0.1 --static . --watch data.json --middlewares ./node_modules/json-server-reset"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4",
+    "json-server-reset": "^1.6.4"
+  },
+  "devDependencies": {
+    "cypress": "^14.0.1",
+    "prettier": "^3.4.2",
+    "start-server-and-test": "^2.0.10"
+  }
+}
