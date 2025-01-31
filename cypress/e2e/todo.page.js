@@ -22,6 +22,20 @@ export const TodoPage = {
       .as(idAlias)
   },
 
+  /**
+   * Creates a random todo item using a random title.
+   * Yields an object with both the id and the title.
+   * @example
+   *  TodoPage.addRandomTodo().then(({ title, id }) => { ... })
+   */
+  addRandomTodo() {
+    const title = `random todo ${Cypress._.random(1e4, 1e5)}`
+    cy.log(`Adding todo item "${title}"`)
+    return this.addTodo(title).then((id) => {
+      return { title, id }
+    })
+  },
+
   reset() {
     cy.request('POST', '/reset', { todos: [] })
   },
