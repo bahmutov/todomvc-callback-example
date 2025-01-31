@@ -12,14 +12,14 @@ export const TodoPage = {
    *  TodoPage.addTodo('write code', 'newTodoId')
    *  cy.get('@newTodoId').should('be.a', 'string')
    */
-  addTodo(title, idAlias) {
+  addTodo(title, idAlias = 'newTodoId') {
     cy.intercept('POST', '/todos').as('newTodo')
     cy.get('.new-todo').type(`${title}{enter}`)
     return cy
       .wait('@newTodo')
       .its('response.body.id')
       .should('be.a', 'string')
-      .as('newTodoId')
+      .as(idAlias)
   },
 
   reset() {
