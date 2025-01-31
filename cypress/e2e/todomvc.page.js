@@ -1,4 +1,8 @@
 export const TodoMVCPage = {
+  reset() {
+    cy.request('POST', '/reset', { todos: [] })
+  },
+
   visit() {
     cy.visit('/')
     cy.get('.loaded')
@@ -10,5 +14,9 @@ export const TodoMVCPage = {
    */
   addTodo(title) {
     cy.get('.new-todo').type(`${title}{enter}`)
+  },
+
+  getTodos() {
+    return cy.get('.todo-list li')
   },
 }
