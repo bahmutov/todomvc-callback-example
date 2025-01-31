@@ -5,7 +5,10 @@ import { TodoPage } from './todo.page'
 it('creates a todo item', () => {
   TodoPage.reset()
   TodoPage.visit()
-  TodoPage.addTodo('write code', (id) => {
+  TodoPage.addTodo('write code', 'newTodoId')
+
+  cy.log('**checking the new todo item**')
+  cy.get('@newTodoId').then((id) => {
     TodoPage.getTodos()
       .should('have.length', 1)
       .first()
