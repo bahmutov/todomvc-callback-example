@@ -12,7 +12,7 @@ export const TodoPage = {
     cy.get('.new-todo').type(`${title}{enter}`)
   },
 
-  resetData() {
+  reset() {
     cy.request('POST', '/reset', { todos: [] })
   },
 
