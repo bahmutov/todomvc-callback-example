@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "json-server --host 127.0.0.1 --static . --watch data.json --middlewares ./node_modules/json-server-reset"
+    "start": "json-server --host 127.0.0.1 --static . --watch data.json --middlewares ./node_modules/json-server-reset",
+    "cy:open": "cypress open",
+    "dev": "start-test start http://127.0.0.1:3000 cy:open"
   },
   "keywords": [],
   "author": "",
