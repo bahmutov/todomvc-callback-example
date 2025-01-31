@@ -15,3 +15,17 @@ it('creates a todo item', () => {
       .should('have.attr', 'data-todo-id', id)
   })
 })
+
+it('creates a random todo item', () => {
+  TodoPage.reset()
+  TodoPage.visit()
+  // create the random todo item
+  // and confirm the element's text and the data id attribute
+  TodoPage.addRandomTodo().then(({ title, id }) => {
+    cy.contains('li.todo', title).should(
+      'have.attr',
+      'data-todo-id',
+      id,
+    )
+  })
+})
