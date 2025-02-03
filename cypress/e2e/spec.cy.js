@@ -17,7 +17,6 @@ it('creates a todo item', () => {
 })
 
 it('creates a random todo item', () => {
-  TodoPage.reset()
   TodoPage.visit()
   // create the random todo item
   // and confirm the element's text and the data id attribute
